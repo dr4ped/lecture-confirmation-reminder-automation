@@ -36,3 +36,44 @@ Working prototype successfully tested in a real academic teaching workflow.
 ## Privacy
 
 This repository uses fictitious sample data only. No real faculty names, emails, or institutional identifiers are included.
+## Installation
+
+1. Download `Lecture_Schedule_Demo.xlsx`.
+2. Upload the workbook to OneDrive for Business.
+3. Import `Lecture_Confirmation_and_Reminder_Automation_Demo_SANITIZED.zip` into Power Automate.
+4. During import, select your own:
+   - Excel Online (Business) connection
+   - Gmail connection
+5. Open the imported flow.
+6. In `List rows present in a table`, select:
+   - Your uploaded Excel workbook
+   - Table: `CourseActivitiesTable`
+7. Configure your own Microsoft Forms confirmation link.
+8. Save and test the flow before enabling the recurrence.
+
+## Excel Requirements
+
+The Excel workbook must contain the table:
+
+`CourseActivitiesTable`
+
+Important fields include:
+
+- Activity ID
+- Date
+- Start Time
+- End Time
+- Topic
+- Faculty Name
+- Faculty Email
+- Group
+- Location
+- Faculty Confirmation
+
+## Confirmation Logic
+
+The confirmation branch processes rows where:
+
+`Faculty Confirmation = Pending`
+
+Faculty who respond are removed from subsequent confirmation reminders once their status is updated.
