@@ -21,6 +21,7 @@ This project automates faculty teaching coordination using:
 6. A separate reminder branch sends a reminder before the scheduled teaching activity.
 
 ## Architecture
+![Lecture Confirmation and Reminder Automation Architecture](architecture.png)
 
 Excel Schedule  
 → Power Automate  
@@ -36,6 +37,7 @@ Working prototype successfully tested in a real academic teaching workflow.
 ## Privacy
 
 This repository uses fictitious sample data only. No real faculty names, emails, or institutional identifiers are included.
+
 ## Installation
 
 1. Download `Lecture_Schedule_Demo.xlsx`.
@@ -50,6 +52,14 @@ This repository uses fictitious sample data only. No real faculty names, emails,
    - Table: `CourseActivitiesTable`
 7. Configure your own Microsoft Forms confirmation link.
 8. Save and test the flow before enabling the recurrence.
+9. Import `Lecture_Confirmation_Response_Automation_Demo_SANITIZED.zip`.
+10. During import, select your own:
+    - Microsoft Forms connection
+    - Excel Online (Business) connection
+11. Configure the response flow to use your own confirmation form.
+12. In `Update a row`, select the same Excel workbook and `CourseActivitiesTable`.
+13. Use `Activity ID` as the key for updating the faculty confirmation status.
+14. Save and test the response flow.
 
 ## Excel Requirements
 
@@ -77,3 +87,10 @@ The confirmation branch processes rows where:
 `Faculty Confirmation = Pending`
 
 Faculty who respond are removed from subsequent confirmation reminders once their status is updated.
+
+## Repository Files
+
+- `Lecture_Confirmation_and_Reminder_Automation_Demo_SANITIZED.zip` — confirmation and reminder flow
+- `Lecture_Confirmation_Response_Automation_Demo_SANITIZED.zip` — response-processing flow
+- `Lecture_Schedule_Demo.xlsx` — fictitious Excel template
+- `architecture.png` — workflow architecture diagram
